@@ -1,11 +1,10 @@
 @import "_null.scss";
-@import "_libs.scss";
+// @import "_libs.scss";
 @import "_fonts.scss";
 
 body {
-	font-family: 'Quicksand', sans-serif;
-	color: #000;
-	// line-height: 27 / 18 * 100%;
+	font-family: 'Fira Sans', sans-serif;
+	color: #0C0C0C;
 	&.lock {
 		overflow-x: hidden;
 	}
@@ -18,16 +17,6 @@ body {
 	width: 100%;
 	min-height: 100%;
 	overflow: hidden;
-	transition-duration: 1s;
-	&.displacement {
-		margin-right: 0;
-		margin-left: -260px;
-		transition-duration: 1s;
-		overflow: visible;
-		@media (max-width: 319px) {
-			margin-left: -230px;
-		};
-	}
 }
 
 .content {
@@ -39,12 +28,21 @@ body {
 	flex: 0 0 auto;
 }
 
-.container {
-	max-width: 1170px;
+.container, 
+.container-fluid {
 	padding: 0 15px;
 	margin: 0 auto;
 	width: 100%;
 }
+
+.container {
+	max-width: 1470px;
+}
+
+.container-fluid {
+	max-width: 1917px;
+}
+
 @import "_global_style.scss";
 @import "_content.scss";
 

@@ -1,63 +1,56 @@
 @font-face {
     font-family: 'Fira Sans';
     src: local('Fira Sans Medium'), local('FiraSans-Medium'),
-        url('../fonts/FiraSans-Medium.woff2') format('woff2');
+        url('FiraSans-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Sans';
     src: local('Fira Sans Light'), local('FiraSans-Light'),
-        url('../fonts/FiraSans-Light.woff2') format('woff2');
+        url('FiraSans-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Sans';
     src: local('Fira Sans Regular'), local('FiraSans-Regular'),
-        url('../fonts/FiraSans-Regular.woff2') format('woff2');
-    font-weight: 400;
+        url('FiraSans-Regular.woff2') format('woff2');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Sans';
     src: local('Fira Sans Regular'), local('FiraSans-Regular'),
-        url('../fonts/FiraSans-Regular.woff2') format('woff2');
-    font-weight: 400;
+        url('FiraSans-Regular.woff2') format('woff2');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Sans';
     src: local('Fira Sans Medium'), local('FiraSans-Medium'),
-        url('../fonts/FiraSans-Medium.woff2') format('woff2');
+        url('FiraSans-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'Fira Sans';
     src: local('Fira Sans Light'), local('FiraSans-Light'),
-        url('../fonts/FiraSans-Light.woff2') format('woff2');
+        url('FiraSans-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'Montserrat';
     src: local('Montserrat Regular'), local('Montserrat-Regular'),
-        url('../fonts/Montserrat-Regular.woff2') format('woff2');
-    font-weight: 400;
+        url('Montserrat-Regular.woff2') format('woff2');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
