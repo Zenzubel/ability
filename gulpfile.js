@@ -40,7 +40,7 @@ function cleanDist () {
 }
 
 function scripts () {
-	return src('app/js/script/swiper/swiper.js')
+	return src(['app/js/script/swiper/swiper.js', 'app/js/script/popup/popups.js'])
 	.pipe(concat('libs.min.js'))
 	.pipe(uglify())
 	.pipe(dest('app/js'))
