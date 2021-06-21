@@ -21,7 +21,6 @@ body {
 
 .content {
 	flex: 1 0 auto;
-	margin-right: 0;
 }
 
 .footer {
@@ -40,7 +39,7 @@ body {
 }
 
 .container-fluid {
-	max-width: 1917px;
+	max-width: 1900px;
 }
 
 @import "_global_style.scss";
