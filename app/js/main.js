@@ -97,14 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	//end main screen tabs
 	//start slider Swiper////////////////////
 	let mySwipeRealIndex;
-		let mySwiper = new Swiper('.feedback__container', {
-			containerModifierClass: 'feedback__container', 
-			wrapperClass: 'feedback__wrapper',
+		let mySwiper = new Swiper('.feedback__cont', {
+			containerModifierClass: 'feedback__cont', 
+			wrapperClass: 'feedback__wrap',
 			slideClass: 'feedback__item',
 			parallax: false,
 			loop: false,
 			slidesPerView: 'auto',
-			spaceBetween: 30,
+			spaceBetween: 180,
 			freeMode: false,
 			centeredSlides: true,
 			simulateTouch: true,
