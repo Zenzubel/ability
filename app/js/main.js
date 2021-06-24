@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// });
 	//end main screen tabs
 	//start slider Swiper////////////////////
-	let mySwipeRealIndex;
 		let mySwiper = new Swiper('.feedback__cont', {
 			containerModifierClass: 'feedback__cont', 
 			wrapperClass: 'feedback__wrap',
@@ -115,5 +114,23 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 		});
 	//end slider Swiper////////////////////
+	//start custom-auto-height
+	const getContainerHeight = document.querySelector('.feedback__cont'),
+		getSlideActive = getContainerHeight.querySelector('.swiper-slide-active'),
+		getContentHeight = getContainerHeight.querySelectorAll('.feedback__content');
+
+	getContainerHeight.style.cssText = `height: ${getSlideActive.firstElementChild.offsetHeight}px;`;
+
+	function autoHeight(item, i) {
+		let height = item[i].offsetHeight + 'px';
+		getContainerHeight.style.cssText = `height: ${height};`;
+	}
+	// autoHeight(getContentHeight, 0);
+
+	mySwiper.on('slideChange', function () {
+		let realIndex = mySwiper.activeIndex;
+		autoHeight(getContentHeight, realIndex);
+	});
+	//start custom-auto-height
 
 });
