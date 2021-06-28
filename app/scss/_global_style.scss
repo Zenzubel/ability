@@ -259,6 +259,18 @@
 
 }
 
+	// .header__logo
+	.logo {
+		width: 100%;
+		
+	}
+	// .header__logo-image
+	.logo-image {
+		max-width: 100%;
+		object-fit: cover;
+		object-position:center;
+	}
+
 .noise {
 	&:before {
 		position:absolute;

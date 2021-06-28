@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 	}
 	// });
 	//end main screen tabs
-	//start slider Swiper////////////////////
+	//start slider Swiper//
 		let mySwiper = new Swiper('.feedback__cont', {
 			containerModifierClass: 'feedback__cont', 
 			wrapperClass: 'feedback__wrap',
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				prevEl: '.feedback__button-prev',
 			},
 		});
-	//end slider Swiper////////////////////
+	//end slider Swiper//
 	//start custom-auto-height
 	const getContainerHeight = document.querySelector('.feedback__cont'),
 		getSlideActive = getContainerHeight.querySelector('.swiper-slide-active'),
@@ -132,5 +132,81 @@ document.addEventListener('DOMContentLoaded', () => {
 		autoHeight(getContentHeight, realIndex);
 	});
 	//start custom-auto-height
+
+		//start form-1 in secyion 'send'//
+	const getForm1 = document.querySelector('#form-1'),
+
+		getLabelName1 = getForm1.querySelector('#label-name-1'),
+		getLabelContact1 = getForm1.querySelector('#label-contact-1'),
+
+		getInputName1 = getForm1.querySelector('#input-name-1'),
+		getInputContact1 = getForm1.querySelector('#input-contact-1'),
+
+		getButton1 = getForm1.querySelector('#button-1');
+
+	const compliteBanner = document.querySelector('.send__complite');
+
+	getForm1.addEventListener('submit', (event) => {
+		event.preventDefault();
+		checkInputs1();
+		sendMail1 ();
+	});
+
+	function sendMail1 () {
+		let error = checkInputs1(getForm1);
+		if (error === 0) {
+			getForm1.classList.add('sending');
+			compliteBanner.classList.add('active');
+			// body.classList.add('lock');
+		} else {
+			// alert('Заполните обязательные поля');
+		}
+	}
+
+	function checkInputs1 () {
+		let error = 0;
+
+		if (getInputName1.value === '' || getInputName1.value === null) {
+			addError1(getLabelName1, 'Заполните это поле');
+			error++;
+		} else {
+			console.log(getInputName1.value);
+			addComplete1(getLabelName1, '');
+		}
+
+		if (getInputContact1.value === '' || getInputContact1.value === null) {
+			addError1(getLabelContact1, 'Заполните это поле');
+			error++;
+		}
+		else {
+			addComplete1(getLabelContact1, '');
+		}
+
+		return error;
+	}
+
+	function addError1 (input, message) {
+		input.classList.add('error');
+		input.classList.remove('complete');
+
+		input.insertAdjacentHTML("beforeEnd", '<span class="form__massage"></span>');
+
+		const labelElement = input.parentElement;
+		const messageError = labelElement.querySelector('.form__massage');
+		messageError.innerText = message;
+
+	}
+
+	function addComplete1 (input, message) {
+		input.classList.add('complete');
+		input.classList.remove('error');
+
+		input.insertAdjacentHTML("beforeEnd", '<span class="form__massage"></span>');
+
+		const labelElement = input.parentElement;
+		const messageError = labelElement.querySelector('.form__massage');
+		messageError.innerText = message;
+	}
+	//end form-1 in secyion 'send'//
 
 });
