@@ -133,7 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	//start custom-auto-height
 
-		//start form-1 in secyion 'send'//
+	//start form-1 in secyion 'send'//
+	const compliteBanner = document.querySelector('.send__complite--popup');
+	const compliteForm = document.querySelector('.send--popup');
+	const compliteText = document.querySelector('.send__connection');
+	const compliteCont = document.querySelector('.send__container');
+
 	const getForm1 = document.querySelector('#form-1'),
 
 		getLabelName1 = getForm1.querySelector('#label-name-1'),
@@ -144,12 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		getButton1 = getForm1.querySelector('#button-1');
 
-	const compliteBanner = document.querySelector('.send__complite');
-
 	getForm1.addEventListener('submit', (event) => {
 		event.preventDefault();
 		checkInputs1();
-		sendMail1 ();
+		sendMail1();
 	});
 
 	function sendMail1 () {
@@ -167,25 +170,81 @@ document.addEventListener('DOMContentLoaded', () => {
 		let error = 0;
 
 		if (getInputName1.value === '' || getInputName1.value === null) {
-			addError1(getLabelName1, 'Заполните это поле');
+			addError(getLabelName1, 'Заполните это поле');
 			error++;
 		} else {
 			console.log(getInputName1.value);
-			addComplete1(getLabelName1, '');
+			addComplete(getLabelName1, '');
 		}
 
 		if (getInputContact1.value === '' || getInputContact1.value === null) {
-			addError1(getLabelContact1, 'Заполните это поле');
+			addError(getLabelContact1, 'Заполните это поле');
 			error++;
 		}
 		else {
-			addComplete1(getLabelContact1, '');
+			addComplete(getLabelContact1, '');
 		}
 
 		return error;
 	}
+	//end form-1 in secyion 'send'//
+	//start form-2 in secyion 'send'//
 
-	function addError1 (input, message) {
+		const getForm2 = document.querySelector('#form-2'),
+
+		getLabelName2 = getForm2.querySelector('#label-name-2'),
+		getLabelContact2 = getForm2.querySelector('#label-contact-2'),
+
+		getInputName2 = getForm2.querySelector('#input-name-2'),
+		getInputContact2 = getForm2.querySelector('#input-contact-2'),
+
+		getButton2 = getForm2.querySelector('#button-2');
+
+	getForm2.addEventListener('submit', (event) => {
+		event.preventDefault();
+		checkInputs2();
+		sendMail2();
+	});
+
+	function sendMail2 () {
+		let error = checkInputs2(getForm2);
+		if (error === 0) {
+			getForm2.classList.add('sending');
+			compliteBanner.classList.add('active');
+			compliteForm.classList.add('active');
+			compliteText.classList.add('active');
+			compliteCont.classList.add('active');
+			// body.classList.add('lock');
+		} else {
+			// alert('Заполните обязательные поля');
+		}
+	}
+
+	function checkInputs2 () {
+		let error = 0;
+
+		if (getInputName2.value === '' || getInputName2.value === null) {
+			addError(getLabelName2, 'Заполните это поле');
+			error++;
+		} else {
+			console.log(getInputName2.value);
+			addComplete(getLabelName2, '');
+		}
+
+		if (getInputContact2.value === '' || getInputContact2.value === null) {
+			addError(getLabelContact2, 'Заполните это поле');
+			error++;
+		}
+		else {
+			addComplete(getLabelContact2, '');
+		}
+
+		return error;
+	}
+	//end form-2 in secyion 'send'//
+
+	//start add arrore for all forms
+	function addError (input, message) {
 		input.classList.add('error');
 		input.classList.remove('complete');
 
@@ -197,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	}
 
-	function addComplete1 (input, message) {
+	function addComplete (input, message) {
 		input.classList.add('complete');
 		input.classList.remove('error');
 
@@ -207,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const messageError = labelElement.querySelector('.form__massage');
 		messageError.innerText = message;
 	}
-	//end form-1 in secyion 'send'//
+	//end add arrore for all forms
+
 
 });
