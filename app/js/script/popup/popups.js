@@ -41,6 +41,7 @@ function popupOpen(curentPopup) {
 			if (!e.target.closest('.popup__content')) {
 				popupClose(e.target.closest('.popup'));
 			}
+			
 		});
 	}
 }
@@ -48,10 +49,19 @@ function popupOpen(curentPopup) {
 function popupClose(popupActive, doUnlock = true) {
 	if (unlock) {
 		popupActive.classList.remove('open');
+
+		const afterElement = document.querySelector('#light');
+		if (afterElement.previousElementSibling.classList.contains('card-in-form')) {
+			setTimeout(()=> afterElement.previousElementSibling.remove(), 1000);
+		}
+
 		if (doUnlock) {
 			bodyUnLock();
 		}
 	}
+
+	const popupVideo = document.querySelector('.video');
+	popupVideo.pause();
 }
 
 function bodyLock() {

@@ -134,18 +134,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	//start custom-auto-height
 
 	//start form-1 in secyion 'send'//
-	const compliteBanner = document.querySelector('.send__complite--popup');
-	const compliteForm = document.querySelector('.send--popup');
-	const compliteText = document.querySelector('.send__connection');
-	const compliteCont = document.querySelector('.send__container');
+
+	const complite = document.querySelector('.complite-all-forms-js').innerHTML;
+	
+
+	const contactInn = document.querySelector('.contacts__inner'),
+		formBox = contactInn.querySelector('.send');
+
 
 	const getForm1 = document.querySelector('#form-1'),
 
 		getLabelName1 = getForm1.querySelector('#label-name-1'),
-		getLabelContact1 = getForm1.querySelector('#label-contact-1'),
+		getLabelContact1 = getForm1.querySelector('#label-contacts-1'),
 
 		getInputName1 = getForm1.querySelector('#input-name-1'),
-		getInputContact1 = getForm1.querySelector('#input-contact-1'),
+		getInputContact1 = getForm1.querySelector('#input-contacts-1'),
 
 		getButton1 = getForm1.querySelector('#button-1');
 
@@ -159,8 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		let error = checkInputs1(getForm1);
 		if (error === 0) {
 			getForm1.classList.add('sending');
-			compliteBanner.classList.add('active');
-			// body.classList.add('lock');
+			formBox.classList.add('active');
+			contactInn.innerHTML = complite;
+
+			const compliteRemove = contactInn.querySelectorAll('.remove-js');
+			compliteRemove.forEach(items => {
+				items.style.cssText = `display: none;`;
+			});
 		} else {
 			// alert('Заполните обязательные поля');
 		}
@@ -190,13 +198,19 @@ document.addEventListener('DOMContentLoaded', () => {
 	//end form-1 in secyion 'send'//
 	//start form-2 in secyion 'send'//
 
+		const formBoxPopup = document.querySelector('.send--popup'),
+			formContainer = formBoxPopup.querySelector('.send__container'),
+			formBody = formBoxPopup.querySelector('.send__body');
+
+		const formConnnectInfo = document.querySelector('.complite-all-forms-js').innerHTML;
+
 		const getForm2 = document.querySelector('#form-2'),
 
 		getLabelName2 = getForm2.querySelector('#label-name-2'),
-		getLabelContact2 = getForm2.querySelector('#label-contact-2'),
+		getLabelContact2 = getForm2.querySelector('#label-contacts-2'),
 
 		getInputName2 = getForm2.querySelector('#input-name-2'),
-		getInputContact2 = getForm2.querySelector('#input-contact-2'),
+		getInputContact2 = getForm2.querySelector('#input-contacts-2'),
 
 		getButton2 = getForm2.querySelector('#button-2');
 
@@ -210,11 +224,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		let error = checkInputs2(getForm2);
 		if (error === 0) {
 			getForm2.classList.add('sending');
-			compliteBanner.classList.add('active');
-			compliteForm.classList.add('active');
-			compliteText.classList.add('active');
-			compliteCont.classList.add('active');
-			// body.classList.add('lock');
+			formContainer.classList.add('active');
+			formBoxPopup.classList.add('active-bg');
+
+			formBody.innerHTML = formConnnectInfo;
+			const compliteText = formBoxPopup.querySelector('.send__connection-text');
+			const complitePhone = formBoxPopup.querySelector('.send__connection-phone');
+			compliteText.classList.add('re-color');
+			complitePhone.classList.add('re-color');
 		} else {
 			// alert('Заполните обязательные поля');
 		}
@@ -267,6 +284,64 @@ document.addEventListener('DOMContentLoaded', () => {
 		messageError.innerText = message;
 	}
 	//end add arrore for all forms
+
+	//start insert product image in send form
+	const insertProduct = document.querySelectorAll('.card__content-body');
+	const insertBtn = document.querySelectorAll('.card__button-link');
+	const afterElement = document.querySelector('#light');
+
+	const cardRowt = document.querySelector('.card__row').addEventListener('click', (event)=> {
+		const target = event.target;
+		event.preventDefault();
+
+		if (target && target.classList.contains('card__button-link')) {
+			insertBtn.forEach((item, i) => {
+				if (target == item) {
+					// if (afterElement.previousElementSibling.classList.contains('card-in-form')) {
+					// 	afterElement.previousElementSibling.remove();
+					// }
+					const el = document.createElement('div');
+					el.classList.add('card-in-form');
+
+					el.innerHTML += '';
+					el.innerHTML = insertProduct[i].innerHTML;
+					afterElement.insertAdjacentElement('beforeBegin', el);
+				}
+			});
+		}
+	});
+	//end insert product image in send form
+	//start smooth scroll
+	document.querySelectorAll('a.scroll-to-js').forEach(link => {
+
+		link.addEventListener('click', function(e) {
+			e.preventDefault();
+
+			let href = this.getAttribute('href').substring(1);
+
+			const scrollTarget = document.getElementById(href);
+
+			const topOffset = 0;
+
+			const elementPosition = scrollTarget.getBoundingClientRect().top;
+			const offsetPosition = elementPosition - topOffset;
+
+			window.scrollBy({
+				top: offsetPosition,
+				behavior: 'smooth'
+			});
+		});
+	});
+	//end smooth scroll
+	//start scroll to top button
+	const buttonScrollTop = document.querySelector('.scroll-top-btn').addEventListener('click', (event)=>{
+		console.log('sdsd');
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	});
+	//end scroll to top button
 
 
 });
