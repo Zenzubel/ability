@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const insertBtn = document.querySelectorAll('.card__button-link');
 	const afterElement = document.querySelector('#light');
 
-	const cardRowt = document.querySelector('.card__row').addEventListener('click', (event)=> {
+	const cardRow = document.querySelector('.card__row').addEventListener('click', (event)=> {
 		const target = event.target;
 		event.preventDefault();
 
@@ -335,7 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	//end smooth scroll
 	//start scroll to top button
 	const buttonScrollTop = document.querySelector('.scroll-top-btn').addEventListener('click', (event)=>{
-		console.log('sdsd');
 		window.scrollTo({
 			top: 0,
 			behavior: 'smooth'
@@ -343,5 +342,31 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	//end scroll to top button
 
+	//start scroll down button
+	const buttonScrollDown = document.querySelector('.show__scroll-btn').addEventListener('click', (event)=>{
+		let height = window.screen.availHeight;
+		console.log(height);
+		window.scrollTo({
+			top: height,
+			behavior: 'smooth'
+		});
+	});
+	//end scroll down button
+
+	//start light-box galary
+	const lightBoxPopup = document.querySelector('.light-box');
+
+	const galaryImagesParent = document.querySelector('.galary__body').addEventListener('click', (event)=>{
+		const target = event.target;
+		event.preventDefault();
+
+		const image = document.querySelectorAll('.galary__image').forEach((item, i)=> {
+			if (target == item) {
+				lightBoxPopup.innerHTML += '';
+				lightBoxPopup.innerHTML = item.innerHTML;
+			}
+		});
+	});
+	//end light-box galary
 
 });

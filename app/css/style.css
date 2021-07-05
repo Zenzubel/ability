@@ -1421,6 +1421,8 @@ body.lock {
 }
 
 .galary__image {
+  position: relative;
+  z-index: 1;
   width: 100%;
   padding: 5px 2.5px;
   overflow: hidden;
@@ -1563,6 +1565,8 @@ body.lock {
 }
 
 .galary__picture {
+  position: relative;
+  z-index: -1;
   width: 100%;
 }
 
@@ -1574,6 +1578,8 @@ body.lock {
   object-fit: cover;
   -o-object-position: center;
   object-position: center;
+  transition-duration: 1s;
+  transform: scale(1);
 }
 
 .contacts__wrapper {
@@ -2077,6 +2083,11 @@ body.lock {
 
   .blog__info-link:hover {
     color: #AF995C;
+  }
+
+  .galary__image:hover .galary__picture source,
+  .galary__image:hover .galary__picture img {
+    transform: scale(1.05);
   }
 
   .send__social-box:hover .header__icon-svg {
