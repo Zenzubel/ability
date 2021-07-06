@@ -30,7 +30,8 @@ body {
 }
 
 .container, 
-.container-fluid {
+.container-fluid, 
+.container-pages {
 	padding: 0 15px;
 	margin: 0 auto;
 	width: 100%;
@@ -42,6 +43,10 @@ body {
 
 .container-fluid {
 	max-width: 1900px;
+}
+
+.container-pages {
+	max-width: 1580px;
 }
 
 @import "_global_style.scss";
