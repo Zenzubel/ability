@@ -170,6 +170,10 @@ body.lock {
   flex: 1 0 auto;
 }
 
+.content--catalog {
+  background-color: #E5E5E5;
+}
+
 .footer {
   flex: 0 0 auto;
 }
@@ -2038,6 +2042,7 @@ body.lock {
 .cheсk-box__label {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .cheсk-box__input {
@@ -2078,6 +2083,8 @@ body.lock {
   font-family: Montserrat;
   font-size: 21px;
   line-height: 123.80952%;
+  transform: translateX(0);
+  transition-duration: 0.3s;
 }
 
 .breadcrumbs__list {
@@ -2106,7 +2113,20 @@ body.lock {
 }
 
 .breadcrumbs__link {
+  position: relative;
   color: #959595;
+}
+
+.breadcrumbs__link:before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #959595;
+  opacity: 0;
+  transition-duration: 0.3s;
 }
 
 .breadcrumbs__active {
@@ -2114,6 +2134,82 @@ body.lock {
   font-weight: 500;
   letter-spacing: 0.05em;
   text-shadow: -0   -1px 0   #AF995C, 0   -1px 0   #AF995C, -0    1px 0   #AF995C, 0    1px 0   #AF995C, -1px -0   0   #AF995C, 1px -0   0   #AF995C, -1px  0   0   #AF995C, 1px  0   0   #AF995C, -1px -1px 0   #AF995C, 1px -1px 0   #AF995C, -1px  1px 0   #AF995C, 1px  1px 0   #AF995C, -1px -1px 0   #AF995C, 1px -1px 0   #AF995C, -1px  1px 0   #AF995C, 1px  1px 0   #AF995C;
+}
+
+.paginations {
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto 0;
+}
+
+.paginations__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginations__item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(175, 153, 92, 0.4);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  transition-duration: 0.3s;
+  position: relative;
+  cursor: pointer;
+  font-family: Fira Sans;
+  font-size: 34px;
+}
+
+.paginations__item + .paginations__item {
+  margin-left: 20px;
+}
+
+.paginations__item.active {
+  background-color: #AF995C;
+}
+
+.paginations__next,
+.paginations__prev {
+  margin: 0 20px;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background-color: transparent;
+  transition-duration: 0.3s;
+}
+
+.paginations__next:before,
+.paginations__prev:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-size: 19px 34px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.paginations__next:hover,
+.paginations__prev:hover {
+  transition-duration: 0.3s;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.paginations__next:before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 17.0079L1.22513 2.23297C0.714346 1.72212 0.714346 0.893888 1.22513 0.383029C1.73606 -0.127676 2.56422 -0.127676 3.07508 0.383029L18.7749 16.0829C19.2856 16.5937 19.2856 17.422 18.7749 17.9328L3.07508 33.6327C2.55532 34.1347 1.72709 34.1202 1.22513 33.6005C0.735504 33.0935 0.735504 32.2897 1.22513 31.7827L16 17.0079Z' fill='%23AF995C'/%3E%3C/svg%3E%0A");
+}
+
+.paginations__prev:before {
+  background-image: url("data:image/svg+xml,%3Csvg iewBox='0 0 20 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.99999 17.0079L18.7749 2.23297C19.2857 1.72212 19.2857 0.893888 18.7749 0.383029C18.2639 -0.127676 17.4358 -0.127676 16.9249 0.383029L1.22507 16.0829C0.714365 16.5937 0.714365 17.422 1.22507 17.9328L16.9249 33.6327C17.4447 34.1347 18.2729 34.1202 18.7749 33.6005C19.2645 33.0935 19.2645 32.2897 18.7749 31.7827L3.99999 17.0079Z' fill='%23AF995C'/%3E%3C/svg%3E%0A");
 }
 
 @media (min-width: 991.98px) {
@@ -2229,6 +2325,20 @@ body.lock {
   .catalog__categories {
     min-width: 320px;
     margin-right: 30px;
+  }
+
+  .cheсk-box__label:hover .cheсk-box__text {
+    transform: translateX(-3px);
+  }
+
+  .breadcrumbs__link:hover:before {
+    width: 100%;
+    opacity: 1;
+  }
+
+  .paginations__item:hover {
+    transition-duration: 0.3s;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -2662,6 +2772,10 @@ body.lock {
 
   .footer__contacts {
     order: 2;
+  }
+
+  .paginations {
+    margin: 70px auto 0;
   }
 }
 

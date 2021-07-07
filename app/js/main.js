@@ -61,40 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	//end scroll header
 
-	//start main screen tabs
-	// const tabBtn = document.querySelectorAll('.about__tab-title');
-	// const tabList = document.querySelectorAll('.about__tab-list');
-	// const tabParent = document.querySelector('.about__questions-wrapper');
-
-	// function hideTab() {
-	// 	tabBtn.forEach(item => {
-	// 		item.classList.remove('active');
-	// 	});
-	// 	tabList.forEach(item => {
-	// 		item.classList.remove('active');
-	// 	});
-	// }
-
-	// function showTabs (i = 1){
-	// 	tabList[i].classList.add('active');
-	// }
-
-	// hideTab();
-	// showTabs();
-
-	// tabParent.addEventListener('click', (event) => {
-	// 	const target = event.target;
-	// 	event.preventDefault();
-	// 	if (target && target.classList.contains('about__tab-title')) {
-	// 		tabBtn.forEach((item, i) => {
-	// 			if (target == item) {
-	// 				hideTab();
-	// 				showTabs(i);
-	// 			}
-	// 		});
-	// 	}
-	// });
-	//end main screen tabs
 	//start slider Swiper//
 		let mySwiper = new Swiper('.feedback__cont', {
 			containerModifierClass: 'feedback__cont', 
@@ -297,9 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (target && target.classList.contains('card__button-link')) {
 			insertBtn.forEach((item, i) => {
 				if (target == item) {
-					// if (afterElement.previousElementSibling.classList.contains('card-in-form')) {
-					// 	afterElement.previousElementSibling.remove();
-					// }
 					const el = document.createElement('div');
 					el.classList.add('card-in-form');
 
@@ -333,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 	//end smooth scroll
+
 	//start scroll to top button
 	const buttonScrollTop = document.querySelector('.scroll-top-btn').addEventListener('click', (event)=>{
 		window.scrollTo({

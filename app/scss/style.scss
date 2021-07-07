@@ -23,6 +23,9 @@ body {
 
 .content {
 	flex: 1 0 auto;
+	&--catalog {
+		background-color: #E5E5E5;
+	}
 }
 
 .footer {
