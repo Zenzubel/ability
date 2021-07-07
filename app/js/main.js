@@ -2,9 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 	//start menu burger//////////
 	const burgerIcon = document.querySelector('.menu-burger__icon');
-	const burgerMenu = document.querySelector('.menu-drop');
 	const burgerMenuList = document.querySelector('.menu-burger__container');
-	const burgerMenuLink = document.querySelectorAll('.menu-drop__link');
 	const body = document.querySelector('body');
 
 	burgerIcon.addEventListener('click', (event) => {
@@ -20,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	burgerMenuList.addEventListener('click', (event) =>{
 		const target = event.target;
-		if (target && target.classList.contains('menu-drop__link')){
+		if (target && target.classList.contains('menu-burger__link')){
 			burgerIcon.classList.remove('active');
 			burgerMenuList.classList.remove('active');
 			body.classList.remove('lock');
