@@ -256,7 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const cardRow = document.querySelector('.card__row').addEventListener('click', (event)=> {
 		const target = event.target;
-		event.preventDefault();
 
 		if (target && target.classList.contains('card__button-link')) {
 			insertBtn.forEach((item, i) => {

@@ -175,16 +175,7 @@
 	&__wrapper {
 		position: relative;
 		height: 100vh;
-		// @media (max-width: 1367px) {
-		// 	height: auto;
-		// 	height: 100vh;
-		// 	min-height: 650px;
-		// 	max-height: 768px;
-		// };
-		// @media (max-width: 767.98px) {
-		// 	max-height: 100%;
-		// 	min-height: auto;
-		// };
+		overflow: hidden;
 	}
 	// .show__inner
 	&__inner {
@@ -207,6 +198,8 @@
 		left: 0;
 		bottom: 0;
 		z-index: 0;
+		height: 115%;
+		overflow: hidden;
 	}
 	// .show__picture
 	&__picture {
@@ -469,6 +462,7 @@
 		width: 100%;
 		height: 100%;
 		position: relative;
+		overflow: hidden;
 	}
 	// .procedure__inner
 	&__inner {
@@ -479,7 +473,7 @@
 	&__bg {
 		position: absolute;
 		width: 100%;
-		height: 100%;
+		height: 125%;
 		top: 0;
 		left: 0;
 		z-index: 0;
@@ -493,7 +487,7 @@
 	&__picture {
 		& source, img {
 			width: 100%;
-			height: 100%;
+			height: 120%;
 			max-height: 100%;
 			object-fit: cover;
 			object-position: center;
@@ -665,6 +659,8 @@
 	}
 	// .card__image
 	&__image {
+		position: relative;
+		z-index: 10;
 		overflow: hidden;
 		width: 100%;
 		max-width: 340px;
@@ -678,6 +674,8 @@
 	}
 	// .card__picture
 	&__picture {
+		position: relative;
+		z-index: -1;
 		width: 100%;
 		& source, img {
 			max-width: 100%;
@@ -744,6 +742,7 @@
 		width: 100%;
 		height: 100%;
 		position: relative;
+		overflow: hidden;
 	}
 	// .advantages__inner
 	&__inner {
@@ -754,7 +753,7 @@
 	&__bg {
 		position: absolute;
 		width: 100%;
-		height: 100%;
+		height: 125%;
 		top: 0;
 		left: 0;
 		z-index: 0;
@@ -768,7 +767,7 @@
 	&__picture {
 		& source, img {
 			width: 100%;
-			height: 100%;
+			height: 120%;
 			max-height: 100%;
 			object-fit: cover;
 			object-position: center;
@@ -1014,17 +1013,18 @@
 		height: 100%;
 		position: relative;
 		color: #fff;
+		overflow: hidden;
 	}
 	// .blog__inner
 	&__inner {
 		position: relative;
 		z-index: 3;
 	}
-	// blog__bg
+	// .blog__bg
 	&__bg {
 		position: absolute;
 		width: 100%;
-		height: 100%;
+		height: 125%;
 		top: 0;
 		left: 0;
 		z-index: 0;
@@ -1034,7 +1034,7 @@
 	&__picture {
 		& source, img {
 			width: 100%;
-			height: 100%;
+			height: 120%;
 			max-height: 100%;
 			object-fit: cover;
 			object-position: center;
@@ -1421,6 +1421,7 @@
 		height: 100%;
 		position: relative;
 		color: #fff;
+		overflow: hidden;
 	}
 	// .contacts__inner
 	&__inner {
@@ -1429,11 +1430,11 @@
 		max-width: 706px;
 		margin: 0 auto;
 	}
-	// contacts__bg
+	// .contacts__bg
 	&__bg {
 		position: absolute;
 		width: 100%;
-		height: 100%;
+		height: 125%;
 		top: 0;
 		left: 0;
 		z-index: 0;
@@ -1443,7 +1444,7 @@
 	&__picture {
 		& source, img {
 			width: 100%;
-			height: 100%;
+			height: 120%;
 			max-height: 100%;
 			object-fit: cover;
 			object-position: center;
@@ -2204,25 +2205,7 @@
 	&__inner {
 	}
 }
-.container-pages {
-}
-.breadcrumbs {
-	// .breadcrumbs__list
-	&__list {
-	}
-	// .breadcrumbs__item
-	&__item {
-		// .breadcrumbs__item--active
-		&--active {
-		}
-	}
-	// .breadcrumbs__link
-	&__link {
-	}
-	// .breadcrumbs__active
-	&__active {
-	}
-}
+
 .product {
 	// .product__body
 	&__body {
@@ -2471,16 +2454,7 @@
 		}
 	}
 }
-.card {
-	// .card__picture
-	&__picture {
-	}
-}
-.product {
-	// .product__popup-swiper-box
-	&__popup-swiper-box {
-	}
-}
+
 .popup-slider {
 	// .popup-slider__container
 	&__container {
@@ -2499,6 +2473,54 @@
 		flex-shrink: 0;
 	}
 }
-
-
 //end product-page
+// start policy
+.policy {
+	// .policy__wrapper
+	&__wrapper {
+		max-width: 1000px;
+		margin: 50px auto 0;
+		@media (max-width: 479.98px) {
+			margin: 30px auto 0;
+		};
+	}
+	// .policy__title
+	&__title {
+		text-transform: uppercase;
+		font-size: 34px;
+		line-height: 39 / 34 * 100%;
+		@media (max-width: 1470px) {
+			font-size: calc(18px + (34 - 18) * ((100vw - 320px) / (1470 - 320)));
+		};
+		@media (max-width: 479.98px) {
+			padding-bottom: 20px
+		};
+	}
+	// .policy__text
+	&__text {
+	}
+	// .policy__paragraf
+	&__paragraf {
+		font-family: Montserrat;
+		font-size: 16px;
+		line-height: 20/ 16 * 100%;
+		@media (max-width: 1470px) {
+			font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1470 - 320)));
+		};
+	}
+	// .policy__btn
+	&__btn {
+		width: 100%;
+		max-width: 700px;
+		margin: 50px auto 0;
+		@media (max-width: 479.98px) {
+			margin: 30px auto 0;
+		};
+	}
+	// .policy__link
+	&__link {
+		width: 100%;
+		padding: 16px 15px;
+	}
+}
+// end policy
